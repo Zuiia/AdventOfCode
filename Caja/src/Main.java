@@ -20,6 +20,7 @@ public class Main {
         System.out.println(data);
 
         System.out.println(DayTwo.checksum(data));
+        System.out.println(DayTwo.rightID(data));
     }
 }
 
