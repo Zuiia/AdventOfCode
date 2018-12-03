@@ -1,5 +1,6 @@
 import Helper.JFileReader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Day2 {
@@ -16,6 +17,8 @@ public class Day2 {
         }
 
         System.out.println(zwei * drei);
+
+        System.out.println(findPrototype(boxes));
     }
 
     private static boolean has(String s, int i) {
@@ -35,5 +38,28 @@ public class Day2 {
             if (s.charAt(x) == c) occ++;
         }
         return occ;
+    }
+
+    private static String findPrototype(List<String> boxes) {
+        int i = 0;
+        while (true) {
+            List<String> neu = cull(i, boxes);
+
+            for (int x = 0; x <= neu.size()-1; x++) {
+                if (neu.subList(x+1, neu.size()).contains(neu.get(x))) return neu.get(x);
+            }
+
+            i++;
+        }
+    }
+
+    private static List<String> cull(int i, List<String> boxes) {
+        List<String> test = new ArrayList<String>();
+        for (String s: boxes) {
+            StringBuilder builder = new StringBuilder(s);
+            builder.deleteCharAt(i);
+            test.add(builder.toString());
+        }
+        return test;
     }
 }
