@@ -18,27 +18,20 @@ public class DayOne {
     public static int twice(ArrayList<String> input) {
         int result = 0;
         int bigCount = 0;
-        int littleCount = 0;
         ArrayList<Integer> results = new ArrayList<>();
         do {
             for (String s : input) {
-                    if (s.charAt(0) == '+') {
-                        result += Integer.parseInt(s.substring(1));
-                        if (results.contains(result)) {
-                            System.out.println(bigCount);
-                            return result;
-                        }
-                        results.add(result);
+                if (s.charAt(0) == '+') {
+                    result += Integer.parseInt(s.substring(1));
+                } else {
+                    result -= Integer.parseInt(s.substring(1));
+                }
 
-                    } else {
-                        result -= Integer.parseInt(s.substring(1));
-                        if (results.contains(result)) {
-                            System.out.println(bigCount);
-                            return result;
-                        }
-                        results.add(result);
-                    }
-                    littleCount++;
+                if (results.contains(result)) {
+                    System.out.println(bigCount);
+                    return result;
+                }
+                results.add(result);
             }
             bigCount++;
         } while (true);
