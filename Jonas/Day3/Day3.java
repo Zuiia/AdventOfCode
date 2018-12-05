@@ -1,3 +1,5 @@
+package Day3;
+
 import Helper.JFileReader;
 
 import java.util.List;
@@ -6,7 +8,7 @@ public class Day3 {
 
 
     public static void main(String[] args) {
-        JFileReader reader = new JFileReader("Day3_input.txt");
+        JFileReader reader = new JFileReader("Day3/input.txt");
         List<String> claims = reader.getLines();
 
         sortClaims(claims);
