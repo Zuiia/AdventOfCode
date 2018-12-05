@@ -56,7 +56,7 @@ public class Day2 {
     }
 
     private static List<String> cull(int i, List<String> boxes) {
-        List<String> test = new ArrayList<String>();
+        List<String> test = new ArrayList<>();
         for (String s: boxes) {
             StringBuilder builder = new StringBuilder(s);
             builder.deleteCharAt(i);
