@@ -48,6 +48,10 @@ public class Guard {
         return max;
     }
 
+    public int getSleepByMin(int min) {
+        return sleep[min];
+    }
+
     public void setAwake(boolean awake) {
         this.awake = awake;
     }

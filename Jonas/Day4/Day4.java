@@ -19,7 +19,9 @@ public class Day4 {
 
         Map<Integer, Guard> guards = organizeGuards(guardListEntries);
 
-        System.out.println(methodOne(guards));
+        System.out.println("Part 1: " + methodOne(guards));
+
+        System.out.println("Part 2: " + methodTwo(guards));
     }
 
     private static Map<Integer, Guard> organizeGuards(List<GuardListEntry> list) {
@@ -59,5 +61,23 @@ public class Day4 {
         }
 
         return (longestId * guardMap.get(longestId).getMaxSleep());
+    }
+
+    private static int methodTwo (Map<Integer, Guard> guardMap) {
+        int frequent = 0;
+        int frequentMin = 0;
+        int frequentId = 0;
+
+        for (int i = 0; i < 60; i++) {
+            for (Guard g: guardMap.values()) {
+                if (g.getSleepByMin(i) > frequent) {
+                    frequent = g.getSleepByMin(i);
+                    frequentMin = i;
+                    frequentId = g.getID();
+                }
+            }
+        }
+
+        return (frequentId * frequentMin);
     }
 }
