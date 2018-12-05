@@ -1,4 +1,4 @@
-package src.DayOne;
+package src.Day1;
 
 import java.util.ArrayList;
 
