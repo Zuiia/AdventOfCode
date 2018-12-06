@@ -7,7 +7,7 @@ public class Day5 {
         JFileReader reader = new JFileReader("Day5/input.txt");
         String polymers = reader.getText();
 
-        //System.out.println("Part 1: " + destroy(polymers.replaceAll("\\s+",""), '.'));
+        System.out.println("Part 1: " + destroy(polymers.replaceAll("\\s+",""), '.'));
 
         System.out.println("Part 2: " + optimize(polymers.replaceAll("\\s+", "")));
     }
@@ -16,7 +16,6 @@ public class Day5 {
         StringBuilder polyBomb = new StringBuilder(polymers);
 
         boolean complete = false;
-
 
         int parse = 0;
 
@@ -33,7 +32,6 @@ public class Day5 {
                     i++;
                 }
             }
-
         }
 
         return polyBomb.length();
@@ -53,16 +51,17 @@ public class Day5 {
     private static int optimize (String polymere) {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         int optLen = Integer.MAX_VALUE;
-        int optChar;
 
         for (char c : alphabet.toCharArray()) {
-            String regex = "/" + Character.toLowerCase(c) + "|" + Character.toUpperCase(c) + "/g";
-            String test = polymere.replaceAll(regex, "");
-            System.out.println(regex + " " + polymere.replaceAll("/A|a/g", ""));
-            int len = destroy(polymere.replaceAll(regex, ""), c);
+
+            String reduced = polymere.replace(String.valueOf(c), "");
+            reduced = reduced.replace(String.valueOf(Character.toUpperCase(c)), "");
+
+            System.out.println(reduced);
+
+            int len = destroy(reduced, c);
             if ( len < optLen ) {
                 optLen = len;
-                optChar = c;
             }
         }
 
