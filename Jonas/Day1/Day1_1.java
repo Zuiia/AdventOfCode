@@ -1,11 +1,13 @@
+package Day1;
+
 import Helper.JFileReader;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Day1_1 {
-    public static void main (String args[]) {
-        JFileReader reader = new JFileReader("Day1_1_input.txt");
+    public static void main (String[] args) {
+        JFileReader reader = new JFileReader("Day1/input.txt");
         List<String> frequencys =  reader.getLines();
 
         int x = 0;

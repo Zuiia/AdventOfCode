@@ -1,3 +1,5 @@
+package Day2;
+
 import Helper.JFileReader;
 
 import java.util.ArrayList;
@@ -5,7 +7,7 @@ import java.util.List;
 
 public class Day2 {
     public static void main(String[] args) {
-        JFileReader reader = new JFileReader("Day2_1_input.txt");
+        JFileReader reader = new JFileReader("Day2/input.txt");
         List<String> boxes = reader.getLines();
 
         int zwei = 0;
@@ -54,7 +56,7 @@ public class Day2 {
     }
 
     private static List<String> cull(int i, List<String> boxes) {
-        List<String> test = new ArrayList<String>();
+        List<String> test = new ArrayList<>();
         for (String s: boxes) {
             StringBuilder builder = new StringBuilder(s);
             builder.deleteCharAt(i);
